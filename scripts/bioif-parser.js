@@ -24,12 +24,12 @@ function numberWithCommas(x) {
 async function parseBioif(text) {
     const lines = text.split('\n')
     if (!lines[0].startsWith(BIOIF_HEADER)) {
-        throw new Error("Invalid BioIF header")
+        throw new Error("invalid bioif header")
     }
 
     const resMatch = lines[1].match(/the image's resolution is (\d+) by (\d+). it is using (v[\d\.]+) of the bioif format/)
     if (!resMatch || resMatch[3] !== "v1.0") {
-        throw new Error("Invalid or unsupported BioIF version")
+        throw new Error("invalid or unsupported bioif version")
     }
 
     const width = parseInt(resMatch[1], 10)
@@ -43,7 +43,7 @@ async function parseBioif(text) {
         const hexColor = `#${match[1]}`
         const phoneticMatch = lines[i].match(/[A-Z][a-z]+(?: [^A-Z#]*[A-Z][a-z]+)*/g)
         if (!phoneticMatch || phoneticToHex(phoneticMatch.join(' ')) !== match[1]) {
-            throw new Error(`Phonetic spelling error in line: ${lines[i]}`)
+            throw new Error(`phonetic spelling error in line: ${lines[i]}`)
         }
         pixels.push(hexColor)
     }

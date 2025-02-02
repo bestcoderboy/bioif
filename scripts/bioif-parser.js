@@ -13,7 +13,6 @@ function hexToPhonetic(hex) {
 
 function phoneticToHex(phonetic) {
     const reverseMap = Object.fromEntries(Object.entries(phoneticAlphabet).map(([k, v]) => [v, k]))
-    console.log(reverseMap)
     return phonetic.split(/[^A-Za-z]+/).map(word => reverseMap[word]).join('')
 }
 

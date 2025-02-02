@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- made by bsb.dev (bestspyboy) 2025 -->
+<!-- handwritten and beautiful -->
+<!-- this was written in one night while watching tv its the worst code ive ever laid eyes upon -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color.bsb.dev</title>
+    <script src="scripts/main.js" type="module"></script>
+</head>
+<body class="bg-purple-950">
+    <hr>
+    <h1>introducing bioif, a revolution in image formats</h1>
+    <p>the <i>bioif</i> format will change images as we know it</p>
+    <p>"this is really cool"</p>
+    <p>- <a href="//bsb.dev">bestspyboy</a> (me)</p>
+    <hr>
+    <h2>the format</h2>
+    <p>to create a compatible parser, you must follow these rules when reading or writing a <i>bioif</i> file</p>
+    <ul>
+        <li>the file must use utf-8 encoding</li>
+        <li>the file must have a "<b>.bioif</b>" file extension</li>
+        <li>the file must start with the following heading, then a line break (\n):
+            <ul>
+                <li>"hi human. this file is encoded with the bioif format. in case you're wondering what that stands for, it means "bsb.dev's incredibly optimised image format". in order to read this file you must have a compatible parser. there's one available over at image.bsb.dev if you just opened this in a text editor! anyway after this bit there will be instructions on how to read the file. if you don't want to use a parser, lucky for you - these files are human readable too. after these sentences will be some nice instructions asking the computer to display some pixels, i'm sure you can write down them on paper or something. you know hex colors right?"</li>
+                <li>if this header is not present in its entirety then the image should be considered corrupted</li>
+            </ul>
+        </li>
+        <li>the file must then have a line with information about the image in this format:
+            <ul>
+                <li>"first things first. the image's resolution is <b>&lt;X_PIXELS&gt;</b> by <b>&lt;Y_PIXELS&gt;</b>. it is using <b>&lt;VERSION&gt;</b> of the bioif format. now let's get to the image itself shall we?"</li>
+                <li><b>&lt;X_PIXELS&gt;</b> - the width of the image in pixels.</li>
+                <li><b>&lt;Y_PIXELS&gt;</b> - the height of the image in pixels.</li>
+                <li><b>&lt;VERSION&gt;</b> - the bioif format used. currently only "<b>v1.0</b>" is acceptable</li>
+            </ul>
+        </li>
+        <li>the file must then have a line for every pixel in this format:
+            <ul>
+                <li>...arbitrary text... + " <b>&lt;HEX_COLOR&gt;</b> " + ...arbitrary text... + " <b>&lt;PHONETIC_SPELLING&gt;</b> " </li>
+                <li><b>&lt;HEX_COLOR&gt;</b> - the hex color of that pixel, with a hashtag symbol at the beginning. it must use capital letters.</li>
+                <li><b>&lt;PHONETIC_SPELLING&gt;</b> - HEX_COLOR but spelt out using the phonetic alphabet.
+                    <ul>
+                        <li>each phonetic word must begin with a capital letter.</li>
+                        <li>arbitrary text is allowed between each capitalised word.</li>
+                        <li>the phonetic spelling must be checked for accuracy to prevent data errors.</li>
+                    </ul></li>
+                <li>any arbitrary text must be in lowercase. it can contain any symbol except the hashtag (#) symbol. numbers are allowed.</li>
+                <li>a compatible example would be the following:
+                    <ul><li>"ok so for this pixel i want you to do the following color: #FFF12E. in case you didn't get that it's Foxtrot Foxtrot Foxtrot One Two Echo. you could describe it as a bright yellow"</li></ul></li>
+            </ul>
+        </li>
+        <li>the file must end with the following footer:
+            <ul>
+                <li>"whew! done! that's all the pixels finished now. if you're a computer then this is your sign to finish up the parsing. and for the humans that got to the end of this file - admire your work. you are the parser now. breath in the achievement of painstakingly recreating every single pixel of an image."</li>
+                <li>if this footer is not present in its entirety then the image should be considered corrupted</li>
+            </ul>
+        </li>
+        <li>it is recommended to write your own files as prose</li>
+        <li>localisation may be supported in a future version</li>
+    </ul>
+    <hr>
+    <h2>an example file</h2>
+    <p>this file is a 2x2 image containing a white, red, green and blue pixel.</p>
+    <p>it was handwritten as the guidance suggests.</p>
+    <textarea style="width: 80%;" rows="20" wrap="soft" spellcheck="false">hi human. this file is encoded with the bioif format. in case you're wondering what that stands for, it means "bsb.dev's incredibly optimised image format". in order to read this file you must have a compatible parser. there's one available over at image.bsb.dev if you just opened this in a text editor! anyway after this bit there will be instructions on how to read the file. if you don't want to use a parser, lucky for you - these files are human readable too. after these sentences will be some nice instructions asking the computer to display some pixels, i'm sure you can write down them on paper or something. you know hex colors right?
+first things first. the image's resolution is 2 by 2. it is using v1.0 of the bioif format. now let's get to the image itself shall we?
+ok so for the first pixel i would like it to be the color white. its like the perfect color to demonstrate a test of a image format. anyway so the computer knows what color to show i'll give it in hex shall i? #FFFFFF. there. that's that bit done. just to check that it's correct though, and there's no magical corruption, i'll give the phonetic version. did you know bit flips can occur through cosmic radiation or something? i read something about that somewhere. oh yea the phonetic version! Foxtrot represents the f. there are six f's in the hex code for white though so i'll have to type another five of Foxtrot. did you see what i did there? using another Foxtrot? Foxtrot Foxtrot Foxtrot there done.
+next pixel alert! we're already on two pixels this is going by so fast. nearly fifty percent through. i'm not going to talk as much to be more optimized and compact because the name of this format is literally "bsb.dev's incredibly optimised image format". the word optimised isnt there for no reason! anyway the color i picked for pixel two is red. that's #FF0000. you know how hex colors work by the way? it's just hexadecimal numbers, from 0 to 255. the first two represent red, the middle two green and the last two are blue. that's why it's Foxtrot Foxtrot but then the rest are all Zero. Zero just represents none of that color. hence the Zero Zero in the green and blue sections.
+okay we're on the third pixel now. you can probably guess what color this one is...... yes its green!!! full marks!!! i wonder if someone will genuinely read this through. that would be quite funny because theres nothing here hidden or anything else i swear. hex color, you know the drill! #00FF00 for green. you see the Zero Zero goes first this time because there's no red in green. then the Foxtrot Foxtrot, and literally anybody can guess what comes next. imagine if it was like delta or something and i was tricking you all just kidding it's Zero and Zero again >:))))
+i have just checked the resolution and oh my god we're at the end of the line with this one. after this pixel i will be gone forever, my pixels parsed. it's strange to think isn't it? that this file might never be read again? and if it is, it will almost certainly be just for its parsing. even worse what if this is my legacy? what if this is bestspyboy's last remaining thing on the entire world? scary stuff. this is why i write image files and not philosophy. well time to finish my job. #0000FF. there. half the job done. now for the phonetic spelling. why is this needed i'll never know, and i wrote the format. anyway here goes. we need four of a Zero then another Zero. two more - Zero Zero, then finally the two blue digits. Foxtrot Foxtrot. there. all done. until the next file. that's it from me, goodbye :)
+whew! done! that's all the pixels finished now. if you're a computer then this is your sign to finish up the parsing. and for the humans that got to the end of this file - admire your work. you are the parser now. breath in the achievement of painstakingly recreating every single pixel of an image.</textarea>
+    <hr>
+    <h2>an example parser</h2>
+    <p>this website contains bioif-parser.js, a module to convert between bioif and png/jpg.</p>
+    <p>here you can test the module. ideally however you should write your own prose ;)</p>
+    <p><i>this module is not very fast for some reason i cant tell why</i></p>
+    <h3>image to bioif</h3>
+    <input type="file" id="fileInput" accept="image/png,image/jpeg">
+    <p id="benchmark-label"></p>
+    <textarea id="fileOutput" style="width: 80%;" rows="10" wrap="soft" spellcheck="false" placeholder="bioif output here..."></textarea>
+    <br>
+    <button id="download-button">download the file</button>
+    <h3>bioif to image</h3>
+    <textarea id="bioifInput" style="width: 80%;" rows="10" wrap="soft" spellcheck="false" placeholder="input bioif contents here..."></textarea>
+    <br>
+    <button id="convert-button">convert to image</button>
+    <br><br>
+    <img src="x" id="imageOutput">
+    <p id="image-label"></p>
+    <hr>
+    <h2>the license</h2>
+    <p>this project is licensed under the MIT license</p>
+    <p>however the header contains attribution so any valid parser has to credit me anyway lmao</p>
+    <hr>
+</body>
+</html>
